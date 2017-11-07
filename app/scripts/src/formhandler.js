@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
-class FormHandler{
-  constructor(selector){
+class FormHandler {
+  constructor(selector) {
     if (!selector) {
       throw new Error('No selector provided');
     }
@@ -17,14 +17,12 @@ class FormHandler{
       event.preventDefault();
 
       let data = {};
-      this.$formElement.serializeArray().forEach((item) => {
+      $(this.$formElement).serializeArray().forEach((item) => {
         data[item.name] = item.value;
         console.log(item.name + ' is ' + item.value);
       });
       console.log(data);
       fn(data);
-      //this.reset();
-      //this.elements[0].focus();
     });
   }
 }
